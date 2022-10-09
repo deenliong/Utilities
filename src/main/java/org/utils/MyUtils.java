@@ -13,10 +13,15 @@ public class MyUtils {
 
         String str = "Hello|World|How are|you all";
 
-        List<String> stringParts = sp.splitString(str, "\\|");
+        List<String> stringParts = null;
+        try {
+            stringParts = sp.splitString(str, "\\|");
 
-        for (String part : stringParts) {
-            System.out.println(part);
+            for (String part : stringParts) {
+                System.out.println(part);
+            }
+        } catch (InvalidStringInputException isie) {
+            System.out.println(isie.getMessage());
         }
     }
 
